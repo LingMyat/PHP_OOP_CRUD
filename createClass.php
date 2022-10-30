@@ -43,7 +43,7 @@ class Post{
     }
 }
 Class Image{
-    public function store($image){
+    static function store($image){
         $tmpName = $_FILES['image']['tmp_name'];
         $patch = 'image/'.$image;
         move_uploaded_file($tmpName,$patch);

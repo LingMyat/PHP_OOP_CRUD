@@ -11,7 +11,7 @@ if (isset($_POST['create'])) {
     empty($_POST['content'])? $errorContent = 'This content field is required' : $content = $_POST['content'];
     empty($_FILES['image']['name'])? $errorImage = 'This image field is required' : $image = rand().$_FILES['image']['name'];
     if ($title<>'' && $content<>'' &&$image<>'') {
-        $imageClass->store($image);
+        Image::store($image);
         $postClass->create($title,$content,$image);
        header('location:index.php');
     }

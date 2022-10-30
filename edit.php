@@ -17,7 +17,7 @@ if (isset($_POST['update'])) {
         } else {
             $image = rand().$_FILES['image']['name'];
             $postClass->update($title,$content,$image);
-            $imageClass->store($image);
+            Image::store($image);
         }
        
        header('location:index.php');
@@ -46,7 +46,7 @@ if (isset($_POST['update'])) {
                     </div>
                 </div>
                 <div class="card-body">
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Title</label>
                         <input type="text" name="title" value="<?php if (isset($_POST['update'])) { echo $title; }else{echo $currentPost['title'];} ?>" class="form-control" id="exampleInputEmail1">
